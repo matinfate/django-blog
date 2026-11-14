@@ -1,5 +1,9 @@
-from django.http import HttpResponse
+from django.shortcuts import render
+
+from .models import Post
+
 
 def post_list(request):
-    return HttpResponse("اولین صفحه‌ی وبلاگ من")
+    posts = Post.objects.all()
+    return render(request,"blog/post_list.html",{"posts":posts})
 

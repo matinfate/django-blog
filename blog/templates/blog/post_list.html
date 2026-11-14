@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>وبلاگ من</title>
+</head>
+<body>
+    <h1>وبلاگ من </h1>
+
+    {% for post in posts %}
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.body }}</p>
+    {% endfor %}
+
+</body>
+</html>
