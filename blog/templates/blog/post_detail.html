@@ -1,0 +1,19 @@
+{% load jalali_tags %}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{{ post.title }} — وبلاگ من</title>
+</head>
+
+<body>
+
+    <h1>{{ post.title }}</h1>
+    <time>{{ post.created_at|jalali }}</time>
+    {{ post.body|linebreaks }}
+    <p><a href="/blog/">بازگشت به فهرست</a></p>
+
+</body>
+
+</html>
