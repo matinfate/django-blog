@@ -9,7 +9,7 @@
     <h1>وبلاگ من </h1>
 
     {% for post in posts %}
-        <h2>{{ post.title }}</h2>
+        <h2><a href="{% url 'blog:post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
         <time>{{ post.created_at|jalali }}</time>
         {{ post.body|linebreaks }}
     {% endfor %}
