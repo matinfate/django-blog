@@ -1,0 +1,28 @@
+body {
+    font-family: Tahoma, "Segoe UI", sans-serif;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 24px 16px;
+    background: #fafafa;
+    color: #222;
+    line-height: 1.9;
+}
+
+h1,
+h2 {
+    line-height: 1.4;
+}
+
+a {
+    color: #0b5ed7;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+time {
+    color: #777;
+    font-size: 0.85rem;
+}
