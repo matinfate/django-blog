@@ -1,18 +1,11 @@
+{% extends "blog/base.html" %}
 {% load jalali_tags %}
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <title>وبلاگ من</title>
-</head>
-<body>
-    <h1>وبلاگ من </h1>
 
+{% block title %}فهرست پست‌ها{% endblock %}
+
+{% block content %}
     {% for post in posts %}
         <h2><a href="{% url 'blog:post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
         <time>{{ post.created_at|jalali }}</time>
-        {{ post.body|linebreaks }}
     {% endfor %}
-
-</body>
-</html>
+{% endblock %}
