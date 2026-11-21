@@ -8,4 +8,16 @@
         <h2><a href="{% url 'blog:post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
         <time>{{ post.created_at|jalali }}</time>
     {% endfor %}
+
+    {% if page_obj.has_previous or page_obj.has_next %}   
+    <nav>                                                
+        {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}">قبلی</a>
+        {% endif %}
+        صفحهٔ {{ page_obj.number }} از {{ page_obj.paginator.num_pages }}
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">بعدی</a>
+        {% endif %}
+    </nav>
+    {% endif %}
 {% endblock %}
