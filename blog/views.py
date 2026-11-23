@@ -1,6 +1,4 @@
-from typing import Any
-
-from django.db.models.query import QuerySet
+from django.db.models import Q
 from django.views.generic import DetailView, ListView
 
 from .models import Post
@@ -14,7 +12,7 @@ class PostListView(ListView):
         queryset = Post.objects.order_by("-created_at")
         q = self.request.GET.get("q", "")
         if q:
-            queryset = queryset.filter(title__icontains=q)
+            queryset = queryset.filter(Q(title__icontains=q) | Q(body__icontains=q))
         return queryset
 
 
