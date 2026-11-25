@@ -5,6 +5,8 @@
 
 {% block content %}
 
+    <p><a href="{% url 'blog:post_create' %}">نوشتن پست جدید</a></p>
+
     <form method="get" action="">
         <input type="search" name="q" placeholder="جست‌وجو در عنوان‌ و متن‌ ..." value="{{ request.GET.q }}">
         <button type="submit">جست‌وجو</button>
