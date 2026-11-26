@@ -6,8 +6,7 @@
     <h2>نوشتن پست جدید</h2>
     <form method="post" action="">
         {% csrf_token %}
-        <input type="text" name="title" placeholder="عنوان پست">
-        <textarea name="body" rows="8" placeholder="متن پست ..."></textarea>
+        {{ form.as_p }}
         <button type="submit">انتشار</button>
     </form>
 {% endblock %}

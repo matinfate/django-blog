@@ -2,6 +2,7 @@ from django.db.models import Q
 from django.shortcuts import redirect, render
 from django.views.generic import DetailView, ListView
 
+from .forms import PostForm
 from .models import Post
 
 
@@ -24,9 +25,10 @@ class PostDetailView(DetailView):
 
 def post_create(request):
     if request.method == "POST":
-        title = request.POST.get("title", "")
-        body = request.POST.get("body", "")
-        if title and body:
-            Post.objects.create(title=title, body=body)
+        form = PostForm(request.POST)
+        if form.is_valid():
+            form.save()
             return redirect("blog:post_list")
-    return render(request, "blog/post_create.html")
+    else:
+        form = PostForm()
+    return render(request, "blog/post_create.html", {"form": form})
