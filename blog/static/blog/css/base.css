@@ -26,3 +26,10 @@ time {
     color: #777;
     font-size: 0.85rem;
 }
+.errorlist {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    color: #b3261e;
+    font-size: 0.875rem;
+}
