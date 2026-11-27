@@ -1,6 +1,6 @@
 from django.db.models import Q
-from django.shortcuts import redirect, render
-from django.views.generic import DetailView, ListView
+from django.urls import reverse_lazy
+from django.views.generic import CreateView, DetailView, ListView
 
 from .forms import PostForm
 from .models import Post
@@ -23,12 +23,8 @@ class PostDetailView(DetailView):
     model = Post
 
 
-def post_create(request):
-    if request.method == "POST":
-        form = PostForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect("blog:post_list")
-    else:
-        form = PostForm()
-    return render(request, "blog/post_create.html", {"form": form})
+class PostCreateView(CreateView):
+    model = Post
+    form_class = PostForm
+    template_name = "blog/post_create.html"
+    success_url = reverse_lazy("blog:post_list")
